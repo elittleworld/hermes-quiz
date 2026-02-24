@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>elittleworld — Find Your Hermès Soulmate | 發現你的命定 Hermès</title>
+
+  <!-- SEO & Social Sharing Meta Tags -->
+  <meta name="description" content="3款Hermès，3種女人。5條問題找出最適合你的Hermès包款。由香港二手奢侈品專門店 elittleworld 呈獻。" />
+  <meta name="keywords" content="Hermès, Picotin, Evelyne, Herbag, 心理測驗, 二手名牌, elittleworld, 香港" />
+
+  <!-- Open Graph (Facebook / Instagram / WhatsApp) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://quiz.elittleworld.com/" />
+  <meta property="og:title" content="你係邊款 Hermès？— 性格測驗 | elittleworld" />
+  <meta property="og:description" content="3款Hermès，3種女人。只需5條問題，即刻發現你的命定 Hermès！由香港二手奢侈品專門店 elittleworld 呈獻。" />
+  <meta property="og:image" content="images/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="zh_HK" />
+  <meta property="og:site_name" content="elittleworld" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="你係邊款 Hermès？— 性格測驗 | elittleworld" />
+  <meta name="twitter:description" content="3款Hermès，3種女人。只需5條問題，即刻發現你的命定 Hermès！" />
+  <meta name="twitter:image" content="images/og-cover.jpg" />
+
+  <!-- WhatsApp specific -->
+  <meta property="og:image:type" content="image/jpeg" />
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --hermes-orange: #B85C38;
+      --hermes-dark: #3D2B1F;
+      --hermes-gold: #C9A96E;
+      --hermes-cream: #FAF6F0;
+      --hermes-warm: #F5EDE0;
+      --hermes-brown: #6B4C3B;
+      --hermes-light: #EDE0D0;
+      --font-serif: 'Playfair Display', 'Georgia', 'Times New Roman', serif;
+      --font-sans: 'Helvetica Neue', 'Arial', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--hermes-cream);
+      color: var(--hermes-dark);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ===== TICKER BAR ===== */
+    .ticker-bar {
+      background: var(--hermes-dark);
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 8px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-block;
+      animation: ticker 20s linear infinite;
+    }
+    .ticker-inner span { margin: 0 40px; }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-bar a { color: #fff; text-decoration: none; }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: var(--hermes-cream);
+      border-bottom: 1px solid var(--hermes-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: var(--hermes-dark);
+      text-decoration: none;
+    }
+    .brand-badge .brand-name { font-weight: 700; }
+    .brand-badge .separator { color: var(--hermes-gold); }
+    .brand-badge .quiz-label { color: var(--hermes-brown); font-style: italic; }
+    .lang-btn {
+      background: var(--hermes-dark);
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .lang-btn:hover { background: var(--hermes-brown); }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative;
+      height: 85vh;
+      min-height: 500px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/hero-bg.jpg');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+    }
+    .hero-bags { display: none; }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(61,43,31,0.80) 0%, rgba(61,43,31,0.15) 55%, transparent 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      padding: 40px 32px;
+      width: 100%;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--hermes-gold);
+      margin-bottom: 12px;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--hermes-gold);
+    }
+    .hero-subtitle {
+      font-size: 15px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 6px;
+    }
+    .hero-meta {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.05em;
+      margin-bottom: 28px;
+    }
+    .btn-start {
+      display: inline-block;
+      background: var(--hermes-orange);
+      color: #fff;
+      border: none;
+      padding: 16px 48px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+    }
+    .btn-start:hover {
+      background: var(--hermes-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(61,43,31,0.35);
+    }
+
+    /* ===== QUIZ CONTAINER ===== */
+    .quiz-container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* ===== PROGRESS BAR ===== */
+    .progress-wrap {
+      margin-bottom: 32px;
+    }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--hermes-brown);
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .progress-bar {
+      height: 3px;
+      background: var(--hermes-light);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--hermes-orange);
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+
+    /* ===== QUESTION CARD ===== */
+    .question-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 36px 32px;
+      box-shadow: 0 4px 24px rgba(61,43,31,0.08);
+      animation: fadeSlideIn 0.35s ease;
+    }
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .question-number {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--hermes-gold);
+      margin-bottom: 12px;
+    }
+    .question-text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
+      color: var(--hermes-dark);
+      line-height: 1.4;
+      margin-bottom: 28px;
+    }
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .option-btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      border: 1.5px solid var(--hermes-light);
+      border-radius: 8px;
+      background: var(--hermes-cream);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: left;
+      font-size: 14px;
+      color: var(--hermes-dark);
+      line-height: 1.4;
+    }
+    .option-btn:hover {
+      border-color: var(--hermes-orange);
+      background: #fff;
+      transform: translateX(4px);
+    }
+    .option-btn.selected {
+      border-color: var(--hermes-orange);
+      background: rgba(184,92,56,0.06);
+    }
+    .option-emoji {
+      font-size: 22px;
+      flex-shrink: 0;
+      width: 32px;
+      text-align: center;
+    }
+
+    /* ===== RESULT PAGE ===== */
+    .result-page {
+      animation: fadeSlideIn 0.5s ease;
+    }
+    .result-header {
+      text-align: center;
+      padding: 20px 0 32px;
+    }
+    .result-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--hermes-gold);
+      margin-bottom: 10px;
+    }
+    .result-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      color: var(--hermes-dark);
+      margin-bottom: 6px;
+    }
+    .result-tagline {
+      font-size: 15px;
+      color: var(--hermes-brown);
+      font-style: italic;
+    }
+    .result-image-wrap {
+      position: relative;
+      max-width: 340px;
+      margin: 0 auto 28px;
+    }
+    .result-image {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 12px 40px rgba(61,43,31,0.2);
+      display: block;
+    }
+    .result-traits {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .trait-badge {
+      background: var(--hermes-warm);
+      border: 1px solid var(--hermes-light);
+      color: var(--hermes-dark);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+    .result-personality {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 12px rgba(61,43,31,0.06);
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--hermes-dark);
+    }
+
+    /* ===== CTA BUTTONS ===== */
+    .cta-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .btn-shop {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--hermes-orange);
+      color: #fff;
+      padding: 18px 32px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .btn-shop:hover {
+      background: var(--hermes-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(61,43,31,0.3);
+    }
+    .btn-whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      padding: 16px 32px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .btn-whatsapp:hover {
+      background: #1da851;
+      transform: translateY(-2px);
+    }
+    .btn-whatsapp svg, .btn-shop svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+
+    /* ===== SHARE SECTION ===== */
+    .share-section {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 12px rgba(61,43,31,0.06);
+      text-align: center;
+    }
+    .share-title {
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--hermes-brown);
+      margin-bottom: 16px;
+    }
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .share-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .share-btn svg { width: 18px; height: 18px; fill: currentColor; }
+    .share-btn.facebook { background: #1877F2; color: #fff; }
+    .share-btn.facebook:hover { background: #0d65d9; }
+    .share-btn.whatsapp { background: #25D366; color: #fff; }
+    .share-btn.whatsapp:hover { background: #1da851; }
+    .share-btn.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; }
+    .share-btn.instagram:hover { opacity: 0.9; }
+    .share-btn.copy { background: var(--hermes-warm); color: var(--hermes-dark); border: 1px solid var(--hermes-light); }
+    .share-btn.copy:hover { background: var(--hermes-light); }
+
+    /* ===== RETRY BUTTON ===== */
+    .btn-retry {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: transparent;
+      border: 1.5px solid var(--hermes-light);
+      border-radius: 6px;
+      color: var(--hermes-brown);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+    .btn-retry:hover { border-color: var(--hermes-orange); color: var(--hermes-orange); }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: var(--hermes-dark);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+    .site-footer a { color: var(--hermes-gold); text-decoration: none; }
+    .site-footer a:hover { color: #fff; }
+
+    /* ===== HIDDEN ===== */
+    .hidden { display: none !important; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 480px) {
+      .hero { height: 90vh; }
+      .hero-content { padding: 28px 20px; }
+      .question-card { padding: 24px 20px; }
+      .result-personality { padding: 20px; }
+      .share-buttons { gap: 8px; }
+      .share-btn { padding: 9px 14px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TICKER BAR -->
+<div class="ticker-bar">
+  <div class="ticker-inner">
+    <span>✦ WWW.ELITTLEWORLD.COM</span>
+    <span>✦ PRELOVED LUXURY SINCE 2018</span>
+    <span>✦ AUTHENTICITY GUARANTEED</span>
+    <span>✦ WORLDWIDE DELIVERY</span>
+    <span>✦ WWW.ELITTLEWORLD.COM</span>
+    <span>✦ PRELOVED LUXURY SINCE 2018</span>
+    <span>✦ AUTHENTICITY GUARANTEED</span>
+    <span>✦ WORLDWIDE DELIVERY</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="https://www.elittleworld.com" target="_blank" class="brand-badge">
+    <span class="brand-name">elittleworld</span>
+    <span class="separator">×</span>
+    <span class="quiz-label">Hermès Quiz</span>
+  </a>
+  <button class="lang-btn" id="langBtn" onclick="toggleLang()">中文</button>
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" id="heroSection">
+  <div class="hero-bg"></div>
+  <div class="hero-bags"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow" data-zh="性格配對" data-en="PERSONALITY QUIZ">性格配對</p>
+    <h1 class="hero-title" data-zh="3款Hermès，<br><em>3種女人</em>" data-en="3 Hermès Bags,<br><em>3 Types of Women</em>">
+      3款Hermès，<br><em>3種女人</em>
+    </h1>
+    <p class="hero-subtitle" data-zh="你係邊款？" data-en="Which one are you?">你係邊款？</p>
+    <p class="hero-meta" data-zh="5條問題 · 只需2分鐘" data-en="5 questions · Takes only 2 minutes">5條問題 · 只需2分鐘</p>
+    <button class="btn-start" onclick="startQuiz()" data-zh="開始測驗" data-en="Start Quiz">開始測驗</button>
+  </div>
+</section>
+
+<!-- QUIZ SECTION -->
+<section class="quiz-container hidden" id="quizSection">
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span data-zh="問題" data-en="Question"><span id="currentQ">1</span> / 5</span>
+      <span id="progressPct">20%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill" style="width: 20%"></div>
+    </div>
+  </div>
+
+  <div class="question-card" id="questionCard">
+    <p class="question-number" id="questionNumber">QUESTION 01</p>
+    <h2 class="question-text" id="questionText"></h2>
+    <div class="options-list" id="optionsList"></div>
+  </div>
+</section>
+
+<!-- RESULT SECTION -->
+<section class="quiz-container hidden" id="resultSection">
+  <div class="result-page">
+    <div class="result-header">
+      <p class="result-eyebrow" data-zh="你的命定 Hermès" data-en="Your Hermès Soulmate">你的命定 Hermès</p>
+      <h2 class="result-title" id="resultName"></h2>
+      <p class="result-tagline" id="resultTagline"></p>
+    </div>
+
+    <div class="result-image-wrap">
+      <img id="resultImage" class="result-image" src="" alt="" />
+    </div>
+
+    <div class="result-traits" id="resultTraits"></div>
+
+    <div class="result-personality" id="resultPersonality"></div>
+
+    <!-- SHOP CTA -->
+    <div class="cta-section">
+      <a id="shopBtn" href="#" target="_blank" class="btn-shop">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span data-zh="立即選購同款 Hermès" data-en="Shop This Hermès Now">立即選購同款 Hermès</span>
+      </a>
+      <a id="whatsappBtn" href="#" target="_blank" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-zh="WhatsApp Elaine 查詢" data-en="WhatsApp Elaine">WhatsApp Elaine 查詢</span>
+      </a>
+      <a id="whatsappBennyBtn" href="#" target="_blank" class="btn-whatsapp" style="background:#128C7E;">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span data-zh="WhatsApp Benny 查詢" data-en="WhatsApp Benny">WhatsApp Benny 查詢</span>
+      </a>
+    </div>
+
+    <!-- SHARE SECTION -->
+    <div class="share-section">
+      <p class="share-title" data-zh="分享給朋友，看看她們係邊款" data-en="Share with friends to see their result">分享給朋友，看看她們係邊款</p>
+      <div class="share-buttons">
+        <button class="share-btn facebook" onclick="shareToFacebook()">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          Facebook
+        </button>
+        <button class="share-btn whatsapp" onclick="shareToWhatsApp()">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </button>
+        <button class="share-btn instagram" onclick="shareToInstagram()">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          Instagram
+        </button>
+        <button class="share-btn copy" onclick="copyLink()">
+          <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+          <span data-zh="複製連結" data-en="Copy Link">複製連結</span>
+        </button>
+      </div>
+    </div>
+
+    <button class="btn-retry" onclick="retryQuiz()">
+      <span data-zh="↺ 重新測驗" data-en="↺ Retake Quiz">↺ 重新測驗</span>
+    </button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>© 2024 <a href="https://www.elittleworld.com" target="_blank">elittleworld</a> — Preloved Luxury Since 2018 · Hong Kong</p>
+  <p style="margin-top:6px">
+    <a href="https://www.instagram.com/elittleworld_share" target="_blank">Instagram</a> &nbsp;·&nbsp;
+    <a href="https://wa.me/85295444066" target="_blank">WhatsApp</a> &nbsp;·&nbsp;
+    <a href="https://www.elittleworld.com" target="_blank">Shop Now</a>
+  </p>
+</footer>
+
+<script>
+  // ===== QUIZ DATA =====
+  const QUIZ_DATA = {
+    questions: [
+      {
+        id: 1,
+        zh: "週末你最想做什麼？",
+        en: "What's your ideal weekend?",
+        options: [
+          { zh: "說走就走，隨意探索城市", en: "Spontaneous city adventures", value: "picotin", emoji: "🌿" },
+          { zh: "一個人靜靜看書或逛美術館", en: "Solo museum visits or reading", value: "evelyne", emoji: "🎨" },
+          { zh: "和朋友去市集或咖啡店創作", en: "Markets & creative cafés with friends", value: "herbag", emoji: "☕" }
+        ]
+      },
+      {
+        id: 2,
+        zh: "你的包包裡通常裝什麼？",
+        en: "What's always in your bag?",
+        options: [
+          { zh: "只有手機、卡包和口紅，越輕越好", en: "Phone, card holder, lipstick — the lighter the better", value: "picotin", emoji: "💄" },
+          { zh: "工作文件、AirPods、一本書", en: "Work docs, AirPods, a book", value: "evelyne", emoji: "📚" },
+          { zh: "速寫本、相機、各種小物", en: "Sketchbook, camera, all sorts of things", value: "herbag", emoji: "📷" }
+        ]
+      },
+      {
+        id: 3,
+        zh: "你的穿搭風格最接近？",
+        en: "Your personal style is closest to?",
+        options: [
+          { zh: "簡約休閒，隨手搭都好看", en: "Effortless casual chic", value: "picotin", emoji: "👟" },
+          { zh: "低調精緻，細節才是重點", en: "Understated elegance — details matter", value: "evelyne", emoji: "🤍" },
+          { zh: "混搭藝術感，每天都是造型實驗", en: "Artsy mix-and-match, every day is an experiment", value: "herbag", emoji: "🎭" }
+        ]
+      },
+      {
+        id: 4,
+        zh: "你買奢侈品最主要的原因是？",
+        en: "Why do you buy luxury?",
+        options: [
+          { zh: "喜歡它的設計，用起來開心", en: "I love the design and it makes me happy", value: "picotin", emoji: "✨" },
+          { zh: "是給自己的獎勵，不需要別人知道", en: "A reward for myself — no need for others to know", value: "evelyne", emoji: "🏆" },
+          { zh: "它是我個人風格的一部分，有故事的東西", en: "It's part of my identity — things with stories", value: "herbag", emoji: "📖" }
+        ]
+      },
+      {
+        id: 5,
+        zh: "你最欣賞哪種女性氣質？",
+        en: "Which feminine quality do you admire most?",
+        options: [
+          { zh: "自由灑脫，活在當下", en: "Free-spirited and living in the moment", value: "picotin", emoji: "🌸" },
+          { zh: "從容自信，不需要證明自己", en: "Quietly confident, no need to prove anything", value: "evelyne", emoji: "🌙" },
+          { zh: "獨樹一幟，有自己的世界觀", en: "Uniquely herself, with her own worldview", value: "herbag", emoji: "🌍" }
+        ]
+      }
+    ],
+    results: {
+      picotin: {
+        name: "Picotin",
+        nameEn: "The Picotin Girl",
+        tagline: "你是自由靈魂的隨性女孩",
+        taglineEn: "You are a free-spirited, carefree soul",
+        personality: "你不喜歡被規則束縛，活在當下是你的人生哲學。Picotin 的開放式設計正是你隨性態度的完美體現——拿起就走，不需要多餘的儀式感。",
+        personalityEn: "You live in the moment and hate being tied down. The Picotin's open-top design perfectly mirrors your carefree attitude — grab and go, no fuss needed.",
+        trait1: "❤️ 隨性自由", trait1En: "Carefree Freedom",
+        trait2: "🌿 活在當下", trait2En: "Living in the Moment",
+        trait3: "✨ 輕盈灑脫", trait3En: "Effortlessly Chic",
+        image: "images/picotin.jpg",
+        whatsapp: "https://wa.me/85295444066?text=Hi Elaine！我做完測驗，發現我是Picotin女孩！想了解更多關於Picotin的資訊。",
+        shopLink: "https://elittleworld.com/en/?product_cat=&s=picotin&post_type=product"
+      },
+      evelyne: {
+        name: "Evelyne",
+        nameEn: "The Evelyne Woman",
+        tagline: "你是低調自信的獨立女性",
+        taglineEn: "You are a quietly confident, independent woman",
+        personality: "你不需要靠外在的標誌來證明自己的品味。Evelyne 的 H logo 朝向自己，正是你「為自己而活」的精神象徵——真正的奢華，是只有你自己知道的那份滿足。",
+        personalityEn: "You don't need visible logos to prove your taste. The Evelyne's inward-facing H logo symbolizes your 'I dress for myself' spirit — true luxury is the satisfaction only you know.",
+        trait1: "🤫 低調自信", trait1En: "Quiet Confidence",
+        trait2: "🏆 為自己而活", trait2En: "Living for Yourself",
+        trait3: "🌙 從容優雅", trait3En: "Effortless Grace",
+        image: "images/evelyne.jpg",
+        whatsapp: "https://wa.me/85295444066?text=Hi Elaine！我做完測驗，發現我是Evelyne女性！想了解更多關於Evelyne的資訊。",
+        shopLink: "https://elittleworld.com/en/?product_cat=&s=evelyne&post_type=product"
+      },
+      herbag: {
+        name: "Herbag",
+        nameEn: "The Herbag Creator",
+        tagline: "你是充滿創意的文藝靈魂",
+        taglineEn: "You are a creative, artsy soul",
+        personality: "你的生活本身就是一件藝術品。Herbag 的帆布與皮革混搭設計，以及可更換的包身設計，完全符合你喜歡創造、喜歡變化的個性——每一天都是一次新的造型實驗。",
+        personalityEn: "Your life is a work of art. The Herbag's canvas-leather mix and interchangeable design perfectly suits your creative, ever-changing personality — every day is a new styling experiment.",
+        trait1: "🎨 文藝創意", trait1En: "Artsy Creativity",
+        trait2: "📖 有故事的人", trait2En: "A Woman with Stories",
+        trait3: "🌍 獨樹一幟", trait3En: "Uniquely Herself",
+        image: "images/herbag.jpg",
+        whatsapp: "https://wa.me/85295444066?text=Hi Elaine！我做完測驗，發現我是Herbag創作者！想了解更多關於Herbag的資訊。",
+        shopLink: "https://elittleworld.com/en/?product_cat=&s=herbag&post_type=product"
+      }
+    }
+  };
+
+  // ===== STATE =====
+  let lang = 'zh';
+  let currentQuestion = 0;
+  let answers = [];
+  const QUIZ_URL = window.location.href.split('?')[0];
+
+  // ===== LANGUAGE TOGGLE =====
+  function toggleLang() {
+    lang = lang === 'zh' ? 'en' : 'zh';
+    document.getElementById('langBtn').textContent = lang === 'zh' ? 'EN' : '中文';
+    updateAllText();
+    if (currentQuestion > 0 && currentQuestion <= QUIZ_DATA.questions.length) {
+      renderQuestion(currentQuestion - 1);
+    }
+  }
+
+  function t(el) {
+    const key = 'data-' + lang;
+    return el.getAttribute(key) || el.getAttribute('data-zh');
+  }
+
+  function updateAllText() {
+    document.querySelectorAll('[data-zh]').forEach(el => {
+      if (el.tagName === 'INPUT' || el.tagName === 'BUTTON' || el.tagName === 'A') {
+        // handled separately
+      }
+      const val = el.getAttribute('data-' + lang) || el.getAttribute('data-zh');
+      if (val && !el.querySelector('*')) {
+        el.textContent = val;
+      } else if (val && el.tagName === 'H1') {
+        el.innerHTML = val;
+      }
+    });
+  }
+
+  // ===== QUIZ LOGIC =====
+  function startQuiz() {
+    document.getElementById('heroSection').classList.add('hidden');
+    document.getElementById('quizSection').classList.remove('hidden');
+    currentQuestion = 0;
+    answers = [];
+    renderQuestion(0);
+  }
+
+  function renderQuestion(idx) {
+    const q = QUIZ_DATA.questions[idx];
+    const total = QUIZ_DATA.questions.length;
+    const pct = Math.round(((idx + 1) / total) * 100);
+
+    document.getElementById('currentQ').textContent = idx + 1;
+    document.getElementById('progressPct').textContent = pct + '%';
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('questionNumber').textContent = 'QUESTION 0' + (idx + 1);
+    document.getElementById('questionText').textContent = lang === 'zh' ? q.zh : q.en;
+
+    const optList = document.getElementById('optionsList');
+    optList.innerHTML = '';
+    q.options.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.className = 'option-btn';
+      btn.innerHTML = `<span class="option-emoji">${opt.emoji}</span><span>${lang === 'zh' ? opt.zh : opt.en}</span>`;
+      btn.onclick = () => selectAnswer(opt.value);
+      optList.appendChild(btn);
+    });
+
+    // Animate
+    const card = document.getElementById('questionCard');
+    card.style.animation = 'none';
+    card.offsetHeight;
+    card.style.animation = 'fadeSlideIn 0.35s ease';
+  }
+
+  function selectAnswer(value) {
+    answers.push(value);
+    currentQuestion++;
+
+    if (currentQuestion < QUIZ_DATA.questions.length) {
+      renderQuestion(currentQuestion);
+    } else {
+      showResult();
+    }
+  }
+
+  function showResult() {
+    // Calculate result
+    const counts = { picotin: 0, evelyne: 0, herbag: 0 };
+    answers.forEach(a => { if (a in counts) counts[a]++; });
+    const winner = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+    const result = QUIZ_DATA.results[winner];
+
+    document.getElementById('quizSection').classList.add('hidden');
+    document.getElementById('resultSection').classList.remove('hidden');
+
+    // Populate result
+    document.getElementById('resultName').textContent = lang === 'zh' ? result.name : result.nameEn;
+    document.getElementById('resultTagline').textContent = lang === 'zh' ? result.tagline : result.taglineEn;
+    document.getElementById('resultImage').src = result.image;
+    document.getElementById('resultImage').alt = result.name;
+    document.getElementById('resultPersonality').textContent = lang === 'zh' ? result.personality : result.personalityEn;
+
+    // Traits
+    const traitsEl = document.getElementById('resultTraits');
+    traitsEl.innerHTML = '';
+    [[result.trait1, result.trait1En], [result.trait2, result.trait2En], [result.trait3, result.trait3En]].forEach(([zh, en]) => {
+      const badge = document.createElement('span');
+      badge.className = 'trait-badge';
+      badge.textContent = lang === 'zh' ? zh : en;
+      traitsEl.appendChild(badge);
+    });
+
+    // Buttons
+    document.getElementById('shopBtn').href = result.shopLink;
+    document.getElementById('shopBtn').querySelector('span').textContent = lang === 'zh' ? '立即選購同款 Hermès' : 'Shop This Hermès Now';
+    document.getElementById('whatsappBtn').href = result.whatsapp;
+    document.getElementById('whatsappBtn').querySelector('span').textContent = lang === 'zh' ? 'WhatsApp Elaine 查詢' : 'WhatsApp Elaine';
+    // Benny WhatsApp button
+    const bennyMsg = lang === 'zh'
+      ? `Hi Benny！我做完測驗，發現我是${result.name}款！想了解更多關於${result.name}的資訊。`
+      : `Hi Benny! I just took the quiz and I'm a ${result.nameEn}! I'd love to know more about the ${result.name}.`;
+    document.getElementById('whatsappBennyBtn').href = `https://wa.me/85294304444?text=${encodeURIComponent(bennyMsg)}`;
+    document.getElementById('whatsappBennyBtn').querySelector('span').textContent = lang === 'zh' ? 'WhatsApp Benny 查詢' : 'WhatsApp Benny';
+
+    // Store result for sharing
+    window._quizResult = { winner, result };
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function retryQuiz() {
+    document.getElementById('resultSection').classList.add('hidden');
+    document.getElementById('heroSection').classList.remove('hidden');
+    currentQuestion = 0;
+    answers = [];
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ===== SHARE FUNCTIONS =====
+  function getShareText() {
+    if (!window._quizResult) return '';
+    const { winner, result } = window._quizResult;
+    const name = lang === 'zh' ? result.name : result.nameEn;
+    const tagline = lang === 'zh' ? result.tagline : result.taglineEn;
+    return lang === 'zh'
+      ? `我做完 elittleworld 的 Hermès 性格測驗，結果係 ${name}！${tagline} 快來試試你係邊款 👉 ${QUIZ_URL}`
+      : `I just took elittleworld's Hermès personality quiz and I'm ${result.nameEn}! ${result.taglineEn} Find out yours 👉 ${QUIZ_URL}`;
+  }
+
+  function shareToFacebook() {
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(QUIZ_URL)}`;
+    window.open(url, '_blank', 'width=600,height=400');
+  }
+
+  function shareToWhatsApp() {
+    const text = getShareText();
+    const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+  }
+
+  function shareToInstagram() {
+    copyLink();
+    alert(lang === 'zh'
+      ? '連結已複製！請開啟 Instagram，貼上連結到 Story 或 Bio 即可分享 ✨'
+      : 'Link copied! Open Instagram and paste the link in your Story or Bio to share ✨');
+  }
+
+  function copyLink() {
+    const text = getShareText() || QUIZ_URL;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.share-btn.copy span');
+      const original = btn.textContent;
+      btn.textContent = lang === 'zh' ? '✓ 已複製！' : '✓ Copied!';
+      setTimeout(() => { btn.textContent = original; }, 2000);
+    }).catch(() => {
+      // Fallback
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    });
+  }
+</script>
+
+</body>
+</html>
