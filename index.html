@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>elittleworld — Find Your Hermès Soulmate | 發現你的命定 Hermès</title>
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6SRTG1MLL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Z6SRTG1MLL');
+  </script>
+
   <!-- SEO & Social Sharing Meta Tags -->
   <meta name="description" content="3款Hermès，3種女人。5條問題找出最適合你的Hermès包款。由香港二手奢侈品專門店 elittleworld 呈獻。" />
   <meta name="keywords" content="Hermès, Picotin, Evelyne, Herbag, 心理測驗, 二手名牌, elittleworld, 香港" />
@@ -763,6 +772,10 @@
     currentQuestion = 0;
     answers = [];
     renderQuestion(0);
+    // GA: Quiz started
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'quiz_start', { event_category: 'Hermes Quiz', event_label: 'Quiz Started' });
+    }
   }
 
   function renderQuestion(idx) {
@@ -845,6 +858,11 @@
 
     // Store result for sharing
     window._quizResult = { winner, result };
+    // GA: Quiz completed + result
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'quiz_complete', { event_category: 'Hermes Quiz', event_label: winner, value: 1 });
+      gtag('event', 'view_result_' + winner, { event_category: 'Hermes Quiz Result', event_label: winner });
+    }
 
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
